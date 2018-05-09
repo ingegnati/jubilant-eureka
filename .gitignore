@@ -20,3 +20,21 @@ project/plugins/project/
 .scala_dependencies
 .worksheet
 .idea
+
+# Temporary
+.netrwhist
+*~
+
+# Vim specific ---
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+._*
+*.swp
+*.swo
+
+# System Files
+.DS_Store
+Thumbs.db
