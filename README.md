@@ -1,6 +1,8 @@
 # Jubilant Eureka
 A WebGL 3D model viewer powered by Scala/http4s and Angular6+
 
+<img src="ui/src/assets/img/svg/light-bulb.svg" alt="Logo" style="width: 100px;"/>
+
 ## Requirements
 
 * Scala v2.12.6
@@ -36,6 +38,11 @@ To show the development server for the Front End you'll need to move into the `u
 
 ## Credits
 
+The logo is licensed under [CC0][1] and it's downloadable from [Pixabay][2].
+
 ## License
 
 See `LICENSE.md`.
+
+[1]: https://creativecommons.org/publicdomain/zero/1.0/deed.en
+[2]: https://pixabay.com/en/light-bulb-idea-incidence-pear-2223050/
