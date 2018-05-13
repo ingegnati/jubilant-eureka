@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 
 import { AppComponent } from './app.component'
 import { LogoComponent } from './logo/logo.component'
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { LogoComponent } from './logo/logo.component'
     LogoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
