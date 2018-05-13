@@ -1,0 +1,40 @@
+<header>
+    <div class="collapse bg-dark" id="navbarHeader"
+      [ngClass]="{show: shouldShow}">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-white">
+              This project is hosted on GitHub: 
+              <a href="https://github.com/ingegnati/jubilant-eureka" target="_blank" class="text-white">
+                https://github.com/ingegnati/jubilant-eureka
+              </a>
+            </p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="http://ingegnati.it" class="text-white">www.ingegnati.it</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a routerLink="" class="navbar-brand d-flex align-items-center">
+          <img width="20" height="20" alt="Jubilant Eureka Logo" src="assets/img/svg/light-bulb.svg"
+            style="margin-right: 0.5em">
+          <strong>Jubilant Eureka</strong>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          (click)="shouldShow = !shouldShow"
+          >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { LogoComponent } from './logo/logo.component'
+import { IndexComponent } from './index/index.component'
+import { MeshesComponent } from './experiments/meshes/meshes.component'
 
 const appRoutes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: '/index'},
-    {path: 'index', component: LogoComponent}
+    {path: 'index', component: IndexComponent},
+    {path: 'meshes', component: MeshesComponent},
 ]
 
 @NgModule({

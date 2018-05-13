@@ -1,20 +1,8 @@
 import * as THREE from 'three-full'
+
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core'
-import { AbstractThreeComponent } from '../shared/three-component.abstract'
-import { CameraProperties } from '../shared/camera-properties.interface'
-
-interface IThreePoint {
-  x: number
-  y: number
-  z: number
-}
-
-interface ICameraProperties {
-  position: IThreePoint,
-  fov: number,
-  nearPane: number,
-  farPane: number
-}
+import { AbstractThreeComponent } from '../../shared/three-component.abstract'
+import { CameraProperties } from '../../shared/camera-properties.interface'
 
 @Component({
   selector: 'app-logo',

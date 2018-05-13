@@ -1,47 +1,11 @@
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Welcome to {{ title }}!</h1>
-        <p class="lead text-muted">
-            A WebGL 3D model viewer powered by Scala/http4s and Angular6+
-        </p>
+<app-header></app-header>
 
-        <!-- ****** Router-Outlet ****** -->
-        <router-outlet></router-outlet>
+<main role="main">
+    <!-- ****** Router-Outlet ****** -->
+    <router-outlet></router-outlet>
+</main>
 
-      <p>
-        <a routerLink="/index" class="btn btn-primary my-2">Main call to action</a>
-        <a routerLink="/index" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        <!-- md-4 card -->
-        <div class="col-md-4" *ngFor="let card of cards">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" 
-              src="assets/img/svg/thumbnail.svg" 
-              alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End card -->
-        
-      </div>
-    </div>
-  </div>
+<app-footer></app-footer>
 
 
 

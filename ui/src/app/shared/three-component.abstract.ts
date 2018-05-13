@@ -15,15 +15,12 @@ export abstract class AbstractThreeComponent {
     protected camera: THREE.PerspectiveCamera
     protected renderer: THREE.WebGLRenderer
     protected addSceneBgColor = false
+    protected sceneBgColor = 0xE9ECEF
     /** @property Camera Properties */
     protected cp: CameraProperties
 
     constructor() {
         this.scene = new THREE.Scene()
-        if (this.addSceneBgColor) {
-            this.scene.background = new THREE.Color( 0x000000 )
-            // this.scene.background = new THREE.Color( 0xE9ECEF )
-        }
     }
 
     /**
@@ -36,6 +33,7 @@ export abstract class AbstractThreeComponent {
         pCameraProperties?: CameraProperties
     ): void {
         this.cp = pCameraProperties !== null ? pCameraProperties : this.getDefaultCameraProperties()
+        this.initScene()
         this.initCamera()
         this.addGridHelper()
         this.addOrbitControls(canvasRef)
@@ -46,6 +44,12 @@ export abstract class AbstractThreeComponent {
     }
 
     abstract addMeshes(): void
+
+    protected initScene(): void {
+        if (this.addSceneBgColor) {
+            this.scene.background = new THREE.Color( 0xE9ECEF )
+        }
+    }
 
     /**
      * Creates a THREE.Camera and sets its position
@@ -109,7 +113,7 @@ export abstract class AbstractThreeComponent {
         this.renderer.domElement.style.margin = 'auto'
     }
 
-    private animateScene(): void {
+    protected animateScene(): void {
         window.requestAnimationFrame(() => this.animateScene())
         // const mouseX = 10;
         // const mouseY = 5;
