@@ -28,6 +28,13 @@ $ sbt
 
 To show the development server for the Front End you'll need to move into the `ui` folder and then launch `ng serve`.
 
+### Export to gh-pages
+
+```
+$ ng build --prod --base-href "http://ingegnati.it/jubilant-eureka/ui/"
+$ ngh
+``` 
+
 ### Getting started
 
 * https://http4s.org/v0.18/
@@ -35,6 +42,8 @@ To show the development server for the Front End you'll need to move into the `u
 * http://torre.me.uk/programming/2017/08/19/scala-with-sbt-and-emacs
 
 ## Contributing
+
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Credits
 
