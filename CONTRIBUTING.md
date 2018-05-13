@@ -64,6 +64,23 @@ You can quickly tell which branches have reached each different stage, and you c
 
     $ gitk --branches="*/foo"
 
+**Using GitFlow as the main cycle**
+
+    master
+    bug/a-bug-fix
+    rel/1.0
+    rel/1.1
+    rel/1.1
+    dev
+    wip/a-common-work-in-progress
+    junk/a-junk-test
+    feat/a-new-feature
+    |- feat/a-new-feature/story-1
+    |- feat/a-new-feature/story-2
+    |- feat/a-new-feature/story-3
+
+![GitFlow diagram](https://datasift.github.io/gitflow/GitFlowHotfixBranch.png)
+
 
 
 #### Use slashes to separate parts
