@@ -8,7 +8,7 @@ A WebGL 3D model viewer powered by Scala/http4s and Angular6+
 * Scala v2.12.6
 * sbt v1.1.4
 * Node v10.0.0
-* npm v6.0.0
+* npm v6.0.1
 * Angular CLI v6.0.0
 
 ## Installation
