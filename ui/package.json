@@ -22,11 +22,8 @@
     "@angular/router": "^6.0.1",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
-    "extract-svg-path": "^2.1.0",
     "font-awesome": "^4.7.0",
-    "load-svg": "^1.0.0",
     "rxjs": "^6.0.0",
-    "svg-mesh-3d": "^1.1.0",
     "three-full": "^6.0.0",
     "zone.js": "^0.8.26"
   },
