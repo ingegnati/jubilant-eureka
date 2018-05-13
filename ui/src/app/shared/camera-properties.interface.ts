@@ -5,8 +5,9 @@ import { ThreePoint } from './three-point.interface'
  * Three.js camera
  */
 export interface CameraProperties {
-    position: ThreePoint,
     fov: number,
     nearPane: number,
     farPane: number
+    aspectRatio: number,
+    position: ThreePoint,
 }
