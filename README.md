@@ -5,11 +5,15 @@ A WebGL 3D model viewer powered by Scala/http4s and Angular6+
 
 ## Requirements
 
+* sbt v1.1.5 ([download](https://www.scala-sbt.org/download.html))
+* Node v10.0.0 ([download](https://nodejs.org/en/download/))
+   * npm v6.0.1 ([get the right npm version](https://www.npmjs.com/get-npm))
+* Angular CLI v6.0.0 (`npm install -g @angular/cli`)
+
+#### Suggested versions
+
 * Scala v2.12.6
-* sbt v1.1.4
-* Node v10.0.0
-* npm v6.0.1
-* Angular CLI v6.0.0
+* Java v1.8 (Oracle)
 
 ## Installation
 
