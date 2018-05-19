@@ -1,9 +1,9 @@
 import scala.sys.process.Process
 import sbt.complete.DefaultParsers._
 
-val Http4sVersion = "0.18.10"
-val Specs2Version = "4.1.0"
-val LogbackVersion = "1.2.3"
+lazy val akkaHttpVersion = "10.1.1"
+lazy val akkaVersion    = "2.5.12"
+lazy val scalaTestVersion = "3.0.1"
 
 lazy val updateNpm = taskKey[Unit]("Update npm")
 lazy val npmTask = inputKey[Unit]("Run npm with arguments")
@@ -11,7 +11,7 @@ lazy val npmTask = inputKey[Unit]("Run npm with arguments")
 lazy val commonSettings = Seq(
     organization := "it.ingegnati",
     name := "jubilant-eureka",
-    version := "0.0.1-SNAPSHOT",
+    version := "0.0.2-SNAPSHOT",
     scalaVersion := "2.12.6"
 )
 
@@ -46,11 +46,15 @@ lazy val backend = (project in file("backend"))
     commonSettings,
     // other settings
      libraryDependencies ++= Seq(
-      "org.http4s"      %% "http4s-blaze-server" % Http4sVersion,
-      "org.http4s"      %% "http4s-circe"        % Http4sVersion,
-      "org.http4s"      %% "http4s-dsl"          % Http4sVersion,
-      "org.specs2"      %% "specs2-core"          % Specs2Version % "test",
-      "ch.qos.logback"  %  "logback-classic"     % LogbackVersion
+       "com.typesafe.akka" %% "akka-http"            % akkaHttpVersion,
+       "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
+       "com.typesafe.akka" %% "akka-http-xml"        % akkaHttpVersion,
+       "com.typesafe.akka" %% "akka-stream"          % akkaVersion,
+
+       "com.typesafe.akka" %% "akka-http-testkit"    % akkaHttpVersion   % Test,
+       "com.typesafe.akka" %% "akka-testkit"         % akkaVersion       % Test,
+       "com.typesafe.akka" %% "akka-stream-testkit"  % akkaVersion       % Test,
+       "org.scalatest"     %% "scalatest"            % scalaTestVersion  % Test
     )
   )
 
