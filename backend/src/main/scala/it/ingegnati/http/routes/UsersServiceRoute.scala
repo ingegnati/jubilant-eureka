@@ -3,6 +3,7 @@ package it.ingegnati.http.routes
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives._
 import it.ingegnati.services.UsersService
+import spray.json._
 
 import scala.concurrent.ExecutionContext
 // import models.User
@@ -11,7 +12,7 @@ import scala.concurrent.ExecutionContext
 class UsersServiceRoute(val usersService: UsersService)(implicit executionContext: ExecutionContext) {
 
   val routes = pathPrefix("users") {
-    routeMe ~ routeCount
+    routeMe ~ routeCount ~ routeList
   }
 
   def routeMe =
@@ -29,6 +30,15 @@ class UsersServiceRoute(val usersService: UsersService)(implicit executionContex
         complete(
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, usersService.getCount().toString)
         )
+      }
+    }
+
+  def routeList =
+    get {
+      path("list") {
+        onSuccess(usersService.retrieveUsers()) { usersSeq =>
+          complete( HttpEntity(ContentTypes.`text/plain(UTF-8)`, usersSeq.toString) )
+        }
       }
     }
 

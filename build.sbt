@@ -59,7 +59,8 @@ lazy val backend = (project in file("backend"))
        "org.scalatest"       %% "scalatest"            % scalaTestVersion  % Test,
 
        "com.typesafe.slick"  %% "slick"                % slickVersion,
-       "org.slf4j"           % "slf4j-nop"             % slf4jVersion
+       "org.slf4j"           % "slf4j-nop"             % slf4jVersion,
+       "com.h2database"      % "h2"                    % "1.4.192"
     )
   )
 

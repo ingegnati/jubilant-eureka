@@ -4,7 +4,6 @@ import akka.actor.ActorSystem
 
 import scala.concurrent.ExecutionContext
 import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.model.HttpMethods._
 import it.ingegnati.http.routes.UsersServiceRoute
 import it.ingegnati.services.UsersService
 
