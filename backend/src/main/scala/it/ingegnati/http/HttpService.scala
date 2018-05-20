@@ -4,21 +4,22 @@ import akka.actor.ActorSystem
 
 import scala.concurrent.ExecutionContext
 import akka.http.scaladsl.server.Directives._
-import it.ingegnati.http.routes.UsersServiceRoute
-import it.ingegnati.services.UsersService
+import it.ingegnati.http.routes.{AppServiceRoute, UsersServiceRoute}
+import it.ingegnati.services.{AppService, UsersService}
 
 class HttpService(
-                   val usersService: UsersService
+                   val usersService: UsersService,
+                   val appService: AppService
                  )(implicit executionContext: ExecutionContext, actorSystem: ActorSystem) {
 
-  // routes
+  // Routers
   val usersRouter = new UsersServiceRoute(usersService)
+  val appRouter = new AppServiceRoute(appService)
 
   val routes = {
     pathPrefix("v1") {
-      // service1.routes ~
-      // service2.routes ~
-      usersRouter.routes
+      usersRouter.routes ~
+      appRouter.routes
     }
   }
 

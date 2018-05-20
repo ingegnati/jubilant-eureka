@@ -6,7 +6,10 @@ trait Configuration {
   protected val config : Config = ConfigFactory.load()
   private val httpConfig = config.getConfig("http")
   private val databaseConfig = config.getConfig("database")
-  // In Memory database configuration
+  private val appConfig = config.getConfig("app")
+
+  // Application
+  val applicationName = appConfig.getString("name")
 
   val httpHost = httpConfig.getString("interface")
   val httpPort = httpConfig.getInt("port")
@@ -16,6 +19,6 @@ trait Configuration {
   val jdbcUrl = databaseConfig.getString( "db.url")
   val dbUser = databaseConfig.getString("db.user")
   val dbPassword = databaseConfig.getString("db.password")
-  // h2mem1
+  // In Memory database configuration
   val h2Conf = config.getObject("h2mem1")
 }
