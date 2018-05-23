@@ -23,7 +23,6 @@ class Persistence(implicit executionContext: ExecutionContext)  {
   )
 
   def initDatabase(): Unit = {
-    println("Fallo cazzo")
     try {
       val setupFuture = db.run(setup)
       setupFuture.onSuccess { case x => {
@@ -36,7 +35,6 @@ class Persistence(implicit executionContext: ExecutionContext)  {
       setupFuture.onFailure { case err => println(err) }
     } finally {
       // db.close()
-      println("Chiuso il DB")
     }
   }
 
