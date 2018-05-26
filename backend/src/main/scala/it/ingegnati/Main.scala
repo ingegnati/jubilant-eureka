@@ -24,7 +24,8 @@ object Main extends App with Configuration {
   implicit val executionContext = system.dispatcher
   val persistence = new Persistence()
   val initialized = persistence.initDatabase()
-
+  // here we use andThen because we don't want to make the Future to complete but to "keep going"
+  // in order to mix it with the rest of futures using flatMap below
   val initDatabase = initialized.andThen {
     case Success(users) => users.foreach {
                   case User(id, email, password) =>
