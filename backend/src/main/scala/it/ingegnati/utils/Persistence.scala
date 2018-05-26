@@ -1,6 +1,7 @@
 package it.ingegnati.utils
 
 // Use H2Driver to connect to an H2 database
+import it.ingegnati.models.User
 import it.ingegnati.models.db.UsersTable
 import slick.jdbc.H2Profile.api._
 
@@ -17,27 +18,16 @@ class Persistence(implicit executionContext: ExecutionContext)  {
     users.schema.create,
 
     // Insert some users
-    users += (1, "test@example.com", "secret"),
-    users += (2, "test2@example.com", "secret2"),
-    users += (3, "test3@example.com", "secret3")
+    users += User(Some(1), "test@example.com", "secret"),
+    users += User(Some(2), "test2@example.com", "secret2"),
+    users += User(Some(3), "test3@example.com", "secret3")
   )
 
-  def initDatabase(): Unit = {
-    try {
-      val setupFuture = db.run(setup)
-      setupFuture.onSuccess { case x => {
-          println("Users:")
-          db.run(this.users.result).map(_.foreach {
-            case (id, email, password) =>
-              println("  " + id + "\t" + email + "\t" + password)
-        })
-      } }
-      setupFuture.onFailure { case err => println(err) }
-    } finally {
-      // db.close()
-    }
-  }
+  def initDatabase(): Future[Seq[User]] =
+    db.run(setup.flatMap(_ => users.result))
 
-  def fetchUsers(): Future[Seq[(Long, String, String)]] = db.run(this.users.result)
+  def fetchUsers(): Future[Seq[User]] = db.run(this.users.result)
+
+  def countUsers(): Future[Int] = db.run(this.users.size.result)
 
 }

@@ -2,7 +2,11 @@ package it.ingegnati.http.routes
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 import it.ingegnati.services.UsersService
+import spray.json._
+import DefaultJsonProtocol._
+import it.ingegnati.models.User
 
 import scala.concurrent.ExecutionContext
 
@@ -15,27 +19,21 @@ class UsersServiceRoute(val usersService: UsersService)(implicit executionContex
   def routeMe =
     get {
       path("me") {
-        complete(
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, usersService.getMe())
-        )
+        complete(usersService.getMe())
       }
     }
 
   def routeCount =
     get {
       path("count") {
-        complete(
-          HttpEntity(ContentTypes.`text/plain(UTF-8)`, usersService.getCount().toString)
-        )
+        complete(usersService.getCount().map(c => Map("count" -> c)))
       }
     }
 
   def routeList =
     get {
       path("list") {
-        onSuccess(usersService.retrieveUsers()) { usersSeq =>
-          complete( HttpEntity(ContentTypes.`text/plain(UTF-8)`, usersSeq.toString) )
-        }
+        complete(usersService.retrieveUsers())
       }
     }
 
