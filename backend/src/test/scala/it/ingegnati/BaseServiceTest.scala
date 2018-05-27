@@ -6,6 +6,9 @@ import it.ingegnati.http.HttpService
 import it.ingegnati.services.{AppService, UsersService}
 import org.scalatest.{Matchers, WordSpec}
 
+/**
+  * A common trait that has to be extended for testing routes and services
+  */
 trait BaseServiceTest extends WordSpec with Matchers with ScalatestRouteTest {
 
   val persistence = new Persistence()

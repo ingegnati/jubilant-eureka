@@ -1,6 +1,6 @@
 package it.ingegnati.utils
 
-import com.typesafe.config.{Config, ConfigFactory}
+import com.typesafe.config.{Config, ConfigFactory, ConfigObject}
 
 trait Configuration {
   protected val config : Config = ConfigFactory.load()
@@ -9,16 +9,16 @@ trait Configuration {
   private val appConfig = config.getConfig("app")
 
   // Application
-  val applicationName = appConfig.getString("name")
+  val applicationName: String = appConfig.getString("name")
 
-  val httpHost = httpConfig.getString("interface")
-  val httpPort = httpConfig.getInt("port")
+  val httpHost: String = httpConfig.getString("interface")
+  val httpPort: Int = httpConfig.getInt("port")
   val httpSelfTimeout = httpConfig.getDuration("self-timeout")
 
   // Database
-  val jdbcUrl = databaseConfig.getString( "db.url")
-  val dbUser = databaseConfig.getString("db.user")
-  val dbPassword = databaseConfig.getString("db.password")
+  val jdbcUrl: String = databaseConfig.getString( "db.url")
+  val dbUser: String = databaseConfig.getString("db.user")
+  val dbPassword: String = databaseConfig.getString("db.password")
   // In Memory database configuration
-  val h2Conf = config.getObject("h2mem1")
+  val h2Conf: ConfigObject = config.getObject("h2mem1")
 }
