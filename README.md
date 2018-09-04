@@ -22,7 +22,7 @@ Clone the repository, move into the cloned folder, and then launch `sbt`.
 
 ## Usage
 
-In order to run the http4s server:
+In order to run the Akka HTTP server:
 
 ```
 $ sbt
