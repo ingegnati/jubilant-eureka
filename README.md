@@ -1,5 +1,5 @@
 # Jubilant Eureka
-A WebGL 3D model viewer powered by Scala/http4s and Angular6+
+A WebGL 3D model viewer powered by Scala Akka HTTP and Angular6+
 
 <img src="ui/src/assets/img/svg/light-bulb.svg" alt="Logo" width="100px">
 
